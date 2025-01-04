@@ -1,5 +1,5 @@
 import type { MetaFunction } from "@remix-run/node";
-import { ModeToggle } from "~/components/ui/mode-toggle";
+import { HomeNavbar } from "~/components/home-layout/home-navbar";
 
 export const meta: MetaFunction = () => {
   return [
@@ -11,8 +11,8 @@ export const meta: MetaFunction = () => {
 export default function Index() {
   return (
     <div className="flex h-screen items-center justify-center">
+      <HomeNavbar />
       <h1 className="text-4xl font-bold">Welcome to Blzonner.io</h1>
-      <ModeToggle />
     </div>
   );
 }
