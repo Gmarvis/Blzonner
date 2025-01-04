@@ -10,7 +10,7 @@ import {
 import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
 
 import "./tailwind.css";
-import { themeSessionResolver } from "./sessions.server";
+import { themeSessionResolver } from "./dependency.server";
 import {
   PreventFlashOnWrongTheme,
   ThemeProvider,
