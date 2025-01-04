@@ -7,7 +7,9 @@ import {
   ScrollRestoration,
   useLoaderData,
 } from "@remix-run/react";
-import type { LinksFunction, LoaderFunctionArgs } from "@remix-run/node";
+import type { LinksFunction, LoaderFunction } from "@remix-run/node";
+import { rootAuthLoader } from "@clerk/remix/ssr.server";
+import { ClerkApp } from "@clerk/remix";
 
 import "./tailwind.css";
 import { themeSessionResolver } from "./dependency.server";
@@ -31,12 +33,14 @@ export const links: LinksFunction = () => [
   },
 ];
 
-export async function loader({ request }: LoaderFunctionArgs) {
-  const { getTheme } = await themeSessionResolver(request);
-  return {
-    theme: getTheme(),
-  };
-}
+export const loader: LoaderFunction = (args) => {
+  return rootAuthLoader(args, async ({ request }) => {
+    const { getTheme } = await themeSessionResolver(request);
+    return {
+      theme: getTheme(),
+    };
+  });
+};
 
 export function App() {
   const data = useLoaderData<typeof loader>();
@@ -61,7 +65,7 @@ export function App() {
   );
 }
 
-export default function AppWithProviders() {
+export function AppWithProviders() {
   const data = useLoaderData<typeof loader>();
   return (
     <ThemeProvider specifiedTheme={data.theme} themeAction="/action/set-theme">
@@ -69,3 +73,5 @@ export default function AppWithProviders() {
     </ThemeProvider>
   );
 }
+
+export default ClerkApp(AppWithProviders);
