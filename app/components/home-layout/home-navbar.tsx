@@ -1,37 +1,36 @@
-import { Button } from '../ui/button';
+import { Button } from "../ui/button";
 import {
   BadgeDollarSign,
   CircleAlert,
   Earth,
-  MessageCircleMore
-} from 'lucide-react';
-import { ModeToggle } from '../ui/mode-toggle';
-import { SignedIn, SignedOut, UserButton } from '@clerk/remix';
-import { Link } from '@remix-run/react';
-
+  MessageCircleMore,
+} from "lucide-react";
+import { ModeToggle } from "../ui/mode-toggle";
+import { SignedIn, SignedOut, UserButton } from "@clerk/remix";
+import { Link } from "@remix-run/react";
 
 export function HomeNavbar() {
   const links = [
     {
-      name: 'About',
-      to: 'about',
-      icon: <CircleAlert />
+      name: "About",
+      to: "about",
+      icon: <CircleAlert />,
     },
     {
-      name: 'Feature',
-      to: 'feature',
-      icon: <Earth />
+      name: "Feature",
+      to: "feature",
+      icon: <Earth />,
     },
     {
-      name: 'Pricing',
-      to: 'pricing',
-      icon: <BadgeDollarSign />
+      name: "Pricing",
+      to: "pricing",
+      icon: <BadgeDollarSign />,
     },
     {
-      name: 'Testimonial',
-      to: 'testimonials',
-      icon: <MessageCircleMore />
-    }
+      name: "Testimonial",
+      to: "testimonials",
+      icon: <MessageCircleMore />,
+    },
   ];
 
   return (
@@ -63,17 +62,22 @@ export function HomeNavbar() {
 
           <div className="col-start-10 col-end-12 space-x-2 font-medium flex justify-end items-center transition-all">
             <ModeToggle />
+            <SignedIn>
+              <Link to={"/studio"}>
+                <Button variant={"secondary"}>Studio</Button>
+              </Link>
+            </SignedIn>
             <SignedOut>
               <Link
                 to="/signin"
                 className="text-black-600 mx-2 sm:mx-4 capitalize tracking-wide hover:text-brand gap-1 transition-all"
               >
-                <Button variant={'ghost'} className="rounded-full sm:px-8 ">
+                <Button variant={"ghost"} className="rounded-full sm:px-8 ">
                   Login
                 </Button>
               </Link>
-              <Link to='/signup' >
-                <Button variant={'outline'} className="rounded-full sm:px-8  ">
+              <Link to="/signup">
+                <Button variant={"outline"} className="rounded-full sm:px-8  ">
                   Sign Up
                 </Button>
               </Link>
@@ -95,7 +99,7 @@ export function HomeNavbar() {
                   to={link.to}
                   key={index}
                   className={
-                    'mx-1 sm:mx-2 px-3 sm:px-4 py-2 flex flex-col items-center text-xs border-t-2 transition-all border-transparent'
+                    "mx-1 sm:mx-2 px-3 sm:px-4 py-2 flex flex-col items-center text-xs border-t-2 transition-all border-transparent"
                   }
                 >
                   {link.icon}
