@@ -12,7 +12,7 @@ export default function Index() {
   return (
     <div className="flex h-screen items-center justify-center">
       <HomeNavbar />
-      <h1 className="text-4xl font-bold">Welcome to Blzonner.io</h1>
+
     </div>
   );
 }
