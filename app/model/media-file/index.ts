@@ -1,4 +1,4 @@
-import { Entity } from "../entity";
+import { Entity } from "~/model/entity";
 import { ConstructorType } from "../types";
 
 export enum FileType {
