@@ -1,5 +1,6 @@
 import { Entity } from "~/model/entity";
 import { ConstructorType } from "../types";
+import { newPrefixedId } from "~/lib/nanoid_ids";
 
 export enum FileType {
   VIDEO = "video",
@@ -23,5 +24,15 @@ export class MediaFile implements Entity {
     this.fileType = input.fileType;
     this.description = input.description;
   }
-}
 
+  static create(input: ConstructorType<Omit<MediaFile, "id">>) {
+    return new MediaFile({
+      id: newPrefixedId("media"),
+      userId: input.userId,
+      title: input.title,
+      fileUrl: input.fileUrl,
+      fileType: input.fileUrl,
+      description: input.description,
+    });
+  }
+}
