@@ -42,7 +42,7 @@ export function HomeNavbar() {
               <h3
                 className={`text-black-500 text-xl text-brand py-2 flex font-bold`}
               >
-                BLzonner
+                zonner.io
               </h3>
             </Link>
           </div>
