@@ -10,7 +10,7 @@ export async function loader() {
 
 export const meta: MetaFunction = () => {
   return [
-    { title: "Blzonner" },
+    { title: "zonner.io" },
     { name: "description", content: "AI-Powered Blogging for Video Creators!" },
   ];
 };
