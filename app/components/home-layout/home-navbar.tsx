@@ -63,7 +63,7 @@ export function HomeNavbar() {
           <div className="col-start-10 col-end-12 space-x-2 font-medium flex justify-end items-center transition-all">
             <ModeToggle />
             <SignedIn>
-              <Link to={"/studio"}>
+              <Link to={"/app"}>
                 <Button variant={"secondary"}>Studio</Button>
               </Link>
             </SignedIn>
