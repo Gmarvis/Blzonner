@@ -1,9 +1,20 @@
 import { Outlet } from "@remix-run/react";
+import { AppSidebar } from "~/components/layouts/app-sidebar";
 import { PageHeader, PageLayout, PageSection } from "~/components/layouts/page";
 import { Button } from "~/components/ui/button";
+import { SidebarProvider, SidebarTrigger} from "~/components/ui/sidebar";
 import { UploadButton } from "~/utils/uploadthing";
 
 export default function index() {
+  return (
+    <SidebarProvider>
+      <AppSidebar />
+      <main>
+        <SidebarTrigger />
+        <Outlet />
+      </main>
+    </SidebarProvider>
+  )
   return (
     <div className="w-full flex justify-between gap-2">
       <PageLayout className="h-screen">
