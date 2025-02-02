@@ -19,6 +19,7 @@ import {
   useTheme,
 } from "remix-themes";
 import clsx from "clsx";
+import { ErrorPage } from "./components/layouts/page";
 
 export const links: LinksFunction = () => [
   { rel: "preconnect", href: "https://fonts.googleapis.com" },
@@ -64,6 +65,28 @@ export function App() {
     </html>
   );
 }
+
+export const ErrorBoundary = () => {
+
+  return (
+    <html lang="en" dir="ltr">
+      <head>
+        <title>Error!</title>
+        <meta charSet="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <Meta />
+        <Links />
+      </head>
+      <body>
+        <div className="bg-muted dark:bg-inherit h-screen w-screen flex items-center justify-center">
+          <ErrorPage />
+        </div>
+        <ScrollRestoration />
+        <Scripts />
+      </body>
+    </html>
+  );
+};
 
 export function AppWithProviders() {
   const data = useLoaderData<typeof loader>();
