@@ -1,5 +1,5 @@
 import { Outlet } from "@remix-run/react";
-import { AppSidebar } from "~/components/layouts/app-sidebar";
+import { AppSidebar } from "~/components/layouts/app-sidebar/sidebar";
 import { PageHeader, PageLayout, PageSection } from "~/components/layouts/page";
 import { Button } from "~/components/ui/button";
 import { SidebarProvider, SidebarTrigger} from "~/components/ui/sidebar";
